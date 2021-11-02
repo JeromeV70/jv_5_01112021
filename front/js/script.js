@@ -17,16 +17,14 @@ function afficheListe(reponse) // afficher les produits sur la page d'accueil
 
 	for (let i in reponse)
 	{
-		//let colors = reponse[i].colors;
-		let id = reponse[i].id;
+		let _id = reponse[i]._id;
 		let name = reponse[i].name;
-		//let price = reponse[i].price;
 		let imageUrl = reponse[i].imageUrl;
 		let description = reponse[i].description;
 		let altTxt = reponse[i].altTxt;
 
 		let a = document.createElement('a');
-		a.href = "./product.html?id="+id;
+		a.href = "./product.html?id="+_id;
 
 		let article = document.createElement('article');
 

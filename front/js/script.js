@@ -17,35 +17,14 @@ function afficheListe(reponse) // afficher les produits sur la page d'accueil
 
 	for (let i in reponse)
 	{
-		let _id = reponse[i]._id;
-		let name = reponse[i].name;
-		let imageUrl = reponse[i].imageUrl;
-		let description = reponse[i].description;
-		let altTxt = reponse[i].altTxt;
-
-		let a = document.createElement('a');
-		a.href = "./product.html?id="+_id;
-
-		let article = document.createElement('article');
-
-		let img = document.createElement('img');
-		img.src=imageUrl;
-		img.alt=altTxt;
-
-		let h3 = document.createElement('h3');
-		h3.class="productName";
-		h3.append(name);
-
-		let p = document.createElement('p');
-		p.class = "productDescription";
-		p.append(description);
-
-		article.appendChild(img);
-		article.appendChild(h3);
-		article.appendChild(p);
-
-		a.appendChild(article);
-
-		document.getElementById('items').appendChild(a);
+		const article = 
+		`<a href="./product.html?id=${reponse[i]._id}">
+			<article>
+				<img src=${reponse[i].imageUrl} alt=${reponse[i].altTxt}/>
+				<h3 class="productName">${reponse[i].name}</h3>
+				<p class="productDescription">${reponse[i].description}</p>
+			</article>
+		</a>`;
+		document.getElementById('items').insertAdjacentHTML("beforeend",article);
 	}
 }

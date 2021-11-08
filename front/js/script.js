@@ -25,6 +25,6 @@ function afficheListe(reponse) // afficher les produits sur la page d'accueil
 				<p class="productDescription">${reponse[i].description}</p>
 			</article>
 		</a>`;
-		document.getElementById('items').insertAdjacentHTML("beforeend",article);
+		document.querySelector('#items').insertAdjacentHTML("beforeend",article);
 	}
 }

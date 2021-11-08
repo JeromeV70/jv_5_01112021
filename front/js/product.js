@@ -19,14 +19,14 @@ function afficheProduit(reponse) // afficher les caractéristiques du produit
 
     const img = `<img src=${reponse.imageUrl} alt=${reponse.altTxt}/>`;
 
-    document.getElementsByClassName('item__img')[0].insertAdjacentHTML("beforeend",img);
-    document.getElementById('title').insertAdjacentHTML("beforeend",reponse.name);
-    document.getElementById('price').insertAdjacentHTML("beforeend",reponse.price);
-    document.getElementById('description').insertAdjacentHTML("beforeend",reponse.description);
+    document.querySelector('.item__img').insertAdjacentHTML("beforeend",img);
+    document.querySelector('#title').insertAdjacentHTML("beforeend",reponse.name);
+    document.querySelector('#price').insertAdjacentHTML("beforeend",reponse.price);
+    document.querySelector('#description').insertAdjacentHTML("beforeend",reponse.description);
 
     for (let couleur of reponse.colors)
     {
         const option = `<option value=${couleur}>${couleur}</option>`;
-        document.getElementById('colors').insertAdjacentHTML("beforeend",option);
+        document.querySelector('#colors').insertAdjacentHTML("beforeend",option);
     }
 }

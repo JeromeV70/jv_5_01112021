@@ -43,6 +43,4 @@ function ajouter() // Ajout au panier lors du clic sur le bouton ajouter
     panier.set(_id+couleur,[_id,couleur,quantite]);
 
     localStorage.setItem("panier",JSON.stringify(Array.from(panier)));
-
-    //console.log(panier);
 }

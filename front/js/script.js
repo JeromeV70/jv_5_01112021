@@ -1,20 +1,12 @@
-let reponse = {};
-let xmlhttp = new XMLHttpRequest();
-xmlhttp.open("GET", 'http://localhost:3000/api/products', true);
-xmlhttp.onreadystatechange = function ()
-{
-  if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-	{		
-        let reponse = xmlhttp.responseText;
-		afficheListe(reponse);
-	}
-}
-xmlhttp.send(null);
+let reponse={};
+fetch("http://localhost:3000/api/products/")
+	.then(function(reponse){if (reponse.ok){return reponse.json();}})
+		.catch(function(erreur){alert(erreur+"\n\nLe serveur ne répond pas");})
+	.then(function(reponse){afficheListe(reponse);})
 
-function afficheListe(reponse) // afficher les produits sur la page d'accueil
+// afficher les produits sur la page d'accueil
+function afficheListe(reponse) 
 {
-	reponse = JSON.parse(reponse);
-
 	for (let i in reponse)
 	{
 		const article = 

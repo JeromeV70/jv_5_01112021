@@ -2,22 +2,14 @@ let url = new URL(window.location.href);
 let _id = url.searchParams.get("id");
 let reponse = {};
 
-let xmlhttp = new XMLHttpRequest();
-xmlhttp.open("GET", 'http://localhost:3000/api/products/'+_id, true);
-xmlhttp.onreadystatechange = function ()
-{
-  if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-	{		
-        let reponse = xmlhttp.responseText;
-		afficheProduit(reponse);
-	}
-}
-xmlhttp.send(null);
+fetch("http://localhost:3000/api/products/"+_id)
+    .then(function(reponse){if (reponse.ok){return reponse.json();}})
+        .catch(function(erreur){alert(erreur+"\n\nLe serveur ne répond pas");})
+    .then(function(reponse){afficheProduit(reponse);})
 
-function afficheProduit(reponse) // afficher les caractéristiques du produit
+// afficher les caractéristiques du produit
+function afficheProduit(reponse) 
 {
-	reponse = JSON.parse(reponse);
-
     const img = `<img src=${reponse.imageUrl} alt=${reponse.altTxt}/>`;
 
     document.querySelector('.item__img').insertAdjacentHTML("beforeend",img);
@@ -34,13 +26,18 @@ function afficheProduit(reponse) // afficher les caractéristiques du produit
 
 document.querySelector('#addToCart').addEventListener('click',function(){ajouter(),false});
 
-function ajouter() // Ajout au panier lors du clic sur le bouton ajouter
+// Ajout au panier lors du clic sur le bouton ajouter
+function ajouter() 
 {
     const couleur = document.querySelector('#colors').value;
     const quantite = document.querySelector('#quantity').value;
 
-    let panier = new Map(JSON.parse(localStorage.getItem("panier")));
-    panier.set(_id+couleur,[_id,couleur,quantite]);
-
-    localStorage.setItem("panier",JSON.stringify(Array.from(panier)));
+    // vérification couleur définie et quantité non nulle
+    if(couleur!==''&&quantite>=1)
+        {
+            let panier = new Map(JSON.parse(localStorage.getItem("panier")));
+            panier.set(_id+couleur,[_id,couleur,quantite]);
+            localStorage.setItem("panier",JSON.stringify(Array.from(panier)));
+        }
+    else{alert("Choisir une couleur et une quantité !");}
 }

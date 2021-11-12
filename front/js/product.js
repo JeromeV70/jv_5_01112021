@@ -38,6 +38,7 @@ function ajouter()
             let panier = new Map(JSON.parse(localStorage.getItem("panier")));
             panier.set(_id+couleur,[_id,couleur,quantite]);
             localStorage.setItem("panier",JSON.stringify(Array.from(panier)));
+            window.location.href="cart.html";
         }
     else{alert("Choisir une couleur et une quantité !");}
 }

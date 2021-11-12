@@ -65,7 +65,7 @@ function liste_produit(reponse)
                     </div>
                 </div>
             </div>
-        <\/article>`
+        <\/article>`;
 
         document.querySelector('#cart__items').insertAdjacentHTML("beforeend",article);
         document.querySelector('article[data-id="'+_id+couleur+'"] .deleteItem').addEventListener("click",function(){supprimer(_id+couleur),false});
@@ -185,6 +185,15 @@ function confirmer()
 {
     const url = new URL(window.location.href);
     const orderId = url.searchParams.get("orderId");
-    document.querySelector('#orderId').append(orderId);
+
+    const id=document.createElement('p');
+    id.append(orderId);
+
+    const merci=document.createElement('p');
+    merci.append('Nous vous remercions pour votre commande !');
+
+    document.querySelector('#orderId').insertAdjacentElement("beforeend",id);
+    document.querySelector('#orderId').insertAdjacentElement("beforeend",merci);
+
     localStorage.clear();
 }

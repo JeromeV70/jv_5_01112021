@@ -75,8 +75,6 @@ function liste_produit(reponse)
     document.querySelector('#totalQuantity').insertAdjacentHTML("beforeend",quantiteTotal);
     document.querySelector('#totalPrice').insertAdjacentHTML("beforeend",prixTotal);
 
-    //document.querySelector('#order').setAttribute('type','button');
-    //document.querySelector('#order').addEventListener("click",function(){verification()});
     const test = document.querySelector('form').addEventListener("submit", verification);
 }
 
@@ -184,16 +182,9 @@ function envoi(tableau)
 function confirmer()
 {
     const url = new URL(window.location.href);
-    const orderId = url.searchParams.get("orderId");
+    const orderId = '<p>'+url.searchParams.get("orderId")+'</p><p>Nous vous remercions pour votre commande !</p>';
 
-    const id=document.createElement('p');
-    id.append(orderId);
-
-    const merci=document.createElement('p');
-    merci.append('Nous vous remercions pour votre commande !');
-
-    document.querySelector('#orderId').insertAdjacentElement("beforeend",id);
-    document.querySelector('#orderId').insertAdjacentElement("beforeend",merci);
+    document.querySelector('#orderId').insertAdjacentHTML("beforeend",orderId);
 
     localStorage.clear();
 }

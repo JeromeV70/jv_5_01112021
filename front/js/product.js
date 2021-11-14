@@ -25,6 +25,24 @@ function afficheProduit(reponse)
 }
 
 document.querySelector('#addToCart').addEventListener('click',function(){ajouter(),false});
+document.querySelector('#colors').addEventListener('click',function(){quantite(),false});
+
+// afficher la quantité déja ajoutée au panier
+function quantite()
+{
+    const couleur = document.querySelector('#colors').value;
+    let panier = {};
+    panier = new Map(JSON.parse(localStorage.getItem("panier")))
+
+    if(panier.has(_id+couleur))
+        {
+            document.querySelector('#quantity').value = panier.get(_id+couleur)[2];
+        }
+    else
+        {
+            document.querySelector('#quantity').value = 0;
+        }
+}
 
 // Ajout au panier lors du clic sur le bouton ajouter
 function ajouter() 

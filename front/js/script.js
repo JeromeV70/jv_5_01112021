@@ -1,3 +1,6 @@
+// Lien vers le repository :
+// https://github.com/JeromeV70/jv_5_01112021
+
 let reponse={};
 fetch("http://localhost:3000/api/products/")
 	.then(function(reponse){if (reponse.ok){return reponse.json();}})

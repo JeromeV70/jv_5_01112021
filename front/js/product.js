@@ -1,3 +1,6 @@
+// Lien vers le repository :
+// https://github.com/JeromeV70/jv_5_01112021
+
 let url = new URL(window.location.href);
 let _id = url.searchParams.get("id");
 let reponse = {};

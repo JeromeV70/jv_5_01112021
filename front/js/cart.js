@@ -1,3 +1,5 @@
+// Lien vers le repository :
+// https://github.com/JeromeV70/jv_5_01112021
 
 // si url de la page panier, alors lancer fonction load(), si url page confirmation alors fonction confirmer()
 if(/cart\.html$/i.test(window.location.href)){document.addEventListener('DOMContentLoaded',function(){load()});}

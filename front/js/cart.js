@@ -40,6 +40,7 @@ function liste_produit(reponse)
         const quantite = element[1][2];
 
         const imageUrl = liste.get(_id)[0];
+        const altTxt = liste.get(_id)[1];
         const _name= liste.get(_id)[2];
         const prixUnitaire = liste.get(_id)[3];
 
@@ -50,7 +51,7 @@ function liste_produit(reponse)
         let article =
         `<article class="cart__item" data-id="${_id}${couleur}">
             <div class="cart__item__img">
-                <img src=${imageUrl} alt="Photographie d'un canapé">
+                <img src=${imageUrl} alt="${altTxt}">
             </div>
             <div class="cart__item__content">
                 <div class="cart__item__content__titlePrice">

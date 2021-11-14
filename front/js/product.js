@@ -22,10 +22,11 @@ function afficheProduit(reponse)
         const option = `<option value=${couleur}>${couleur}</option>`;
         document.querySelector('#colors').insertAdjacentHTML("beforeend",option);
     }
-}
 
-document.querySelector('#addToCart').addEventListener('click',function(){ajouter(),false});
-document.querySelector('#colors').addEventListener('click',function(){quantite(),false});
+    document.querySelector('#addToCart').addEventListener('click',function(){ajouter(),false});
+    document.querySelector('#colors').addEventListener('click',function(){quantite(),false});
+    document.querySelector('#colors').addEventListener("keyup",function(){quantite(),false});
+}
 
 // afficher la quantité déja ajoutée au panier
 function quantite()

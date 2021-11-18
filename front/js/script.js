@@ -15,7 +15,7 @@ function afficheListe(reponse)
 		const article = 
 		`<a href="./product.html?id=${reponse[i]._id}">
 			<article>
-				<img src=${reponse[i].imageUrl} alt=${reponse[i].altTxt}/>
+				<img src=${reponse[i].imageUrl} alt="${reponse[i].altTxt}"/>
 				<h3 class="productName">${reponse[i].name}</h3>
 				<p class="productDescription">${reponse[i].description}</p>
 			</article>

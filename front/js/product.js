@@ -13,7 +13,7 @@ fetch("http://localhost:3000/api/products/"+_id)
 // afficher les caractéristiques du produit
 function afficheProduit(reponse) 
 {
-    const img = `<img src=${reponse.imageUrl} alt=${reponse.altTxt}/>`;
+    const img = `<img src=${reponse.imageUrl} alt="${reponse.altTxt}"/>`;
 
     document.querySelector('.item__img').insertAdjacentHTML("beforeend",img);
     document.querySelector('#title').insertAdjacentHTML("beforeend",reponse.name);

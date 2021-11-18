@@ -52,10 +52,10 @@ function quantite()
 function ajouter() 
 {
     const couleur = document.querySelector('#colors').value;
-    const quantite = document.querySelector('#quantity').value;
+    const quantite = parseInt(document.querySelector('#quantity').value);
 
     // vérification couleur définie et quantité non nulle
-    if(couleur!==''&&quantite>=1)
+    if(couleur!==''&& quantite>=1 && typeof(couleur)==="string" && typeof(quantite)==="number" && typeof(_id)==="string")
         {
             let panier = new Map(JSON.parse(localStorage.getItem("panier")));
             panier.set(_id+couleur,[_id,couleur,quantite]);

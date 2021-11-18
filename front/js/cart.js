@@ -118,19 +118,19 @@ function verification(e)
 
     let valider=true;
 
-    if (/^[a-z ]{1,}$/i.test(prenom)==false){valider=false;messageErreur('firstName','Le prénom doit comporter uniquement des lettres');}
+    if (/^[a-z ]{1,}$/i.test(prenom)==false && typeof(prenom)==="string"){valider=false;messageErreur('firstName','Le prénom doit comporter uniquement des lettres');}
     else{ document.querySelector('#firstNameErrorMsg').textContent='';}
 
-    if (/^[a-z ]{1,}$/i.test(nom)==false){valider=false;messageErreur('lastName','Le nom doit comporter uniquement des lettres');}
+    if (/^[a-z ]{1,}$/i.test(nom)==false && typeof(nom)==="string"){valider=false;messageErreur('lastName','Le nom doit comporter uniquement des lettres');}
     else{document.querySelector('#lastNameErrorMsg').textContent='';}
 
-    if (/^[a-z0-9 ]{1,}$/i.test(adresse)==false){valider=false;messageErreur('address','L\'adresse doit comporter uniquement des lettres ou des chiffres');}
+    if (/^[a-z0-9 ]{1,}$/i.test(adresse)==false && typeof(adresse)==="string"){valider=false;messageErreur('address','L\'adresse doit comporter uniquement des lettres ou des chiffres');}
     else{document.querySelector('#addressErrorMsg').textContent='';}
 
-    if (/^[a-z- ]{1,}$/i.test(ville)==false){valider=false;messageErreur('city','La ville doit comporter uniquement des lettres ou \"-\"');}
+    if (/^[a-z- ]{1,}$/i.test(ville)==false && typeof(ville)==="string"){valider=false;messageErreur('city','La ville doit comporter uniquement des lettres ou \"-\"');}
     else{document.querySelector('#cityErrorMsg').textContent='';}
 
-    if (/\S+@\S+\.\S+/i.test(email)==false){valider=false;messageErreur('email','L\'adresse email doit comporter des lettres, un arobase et un point. ');}
+    if (/\S+@\S+\.\S+/i.test(email)==false && typeof(email)==="string"){valider=false;messageErreur('email','L\'adresse email doit comporter des lettres, un arobase et un point. ');}
     else{document.querySelector('#emailErrorMsg').textContent='';}
 
     if(parseInt(totalQuantite)<1){valider=false;document.querySelector('#emailErrorMsg').append("Le panier est vide !");}
